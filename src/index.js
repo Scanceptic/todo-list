@@ -30,4 +30,5 @@ tasks.appendChild(testItem);
 expandTodo(testItem);
 console.log(testItem.classList);
 expandTodo(testItem);
+setTodoComplete(testItem);
 console.log(testItem.classList);
