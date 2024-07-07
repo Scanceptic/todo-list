@@ -21,6 +21,8 @@ body {
 
 * {
 	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 a {
@@ -31,14 +33,19 @@ a {
 header {
 	width: 100%;
 	background-color: var(--bg-color-secondary);
-	padding: 25px;
-	height: 100px;
-	border: 1px solid var(--border-color);
+	height: 15vh;
+	border-bottom: 1px solid var(--border-color);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 nav {
 	display: flex;
 	justify-content: space-around;
+	width: 100%;
+	padding: 0 20%;
 }
 
 button {
@@ -59,9 +66,11 @@ button {
 	color: var(--text-color-secondary);
 	border: 1px solid var(--border-color);
 	border-top: none;
+	border-left: none;
 }
 
-#sidebar > ol {
+#sidebar > ol,
+#to-do-list > ol {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
@@ -70,17 +79,45 @@ button {
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
-	text-align: center;
 	font-weight: 700;
 }
 
+#sidebar > ol > li,
+#to-do-list > ol > li {
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
 #sidebar > ol > li {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	justify-content: center;
 }
 
 .even {
 	background-color: var(--bg-color-highlight);
+	color: var(--text-color-highlight);
+}
+
+#to-do-list {
+	margin: 50px;
+	background-color: var(--bg-color-secondary);
+	border: 1px solid var(--border-color);
+}
+
+#to-do-list > ol > li {
+	justify-content: left;
+	padding: 20px;
+	border: 1px solid var(--border-color);
+}
+
+footer {
+	margin-top: auto;
+	height: 5vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: 700;
+	background-color: var(--bg-color-secondary);
+	padding: 20px 0;
+	border-top: 1px solid var(--border-color);
 }
