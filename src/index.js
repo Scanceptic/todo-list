@@ -1,3 +1,5 @@
+import "./style.css";
+
 function testLog() {
 	console.log("Successful Link");
 }
