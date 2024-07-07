@@ -1,0 +1,1 @@
+/* Opens up the homepage */
