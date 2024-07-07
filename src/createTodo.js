@@ -1,5 +1,3 @@
-import { todo } from "node:test";
-
 /* Creates a Todo list item based user inputs */
 export default function createTodo(
 	title,
