@@ -3,5 +3,6 @@ export default function changeTodoPriority(item, priority) {
     console.log("Changing To-do Priority...");
 	// take todo list item
 	// set attribute "priority" to priority input
+	item.priority = priority;
 	// let another module update DOM
 }
