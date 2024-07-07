@@ -22,3 +22,12 @@ const testTodoItem = createTodo("Iron Laundry", "Iron the rest of the laundry le
 console.log(testTodoItem);
 changeTodoPriority(testTodoItem, 2);
 console.log(testTodoItem);
+const tasks = document.getElementById("tasks");
+const testItem = document.createElement("li");
+testItem.textContent = "Task X";
+testItem.classList.add("task");
+tasks.appendChild(testItem);
+expandTodo(testItem);
+console.log(testItem.classList);
+expandTodo(testItem);
+console.log(testItem.classList);
