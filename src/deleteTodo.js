@@ -1,0 +1,1 @@
+/* Delete a selected todo item */

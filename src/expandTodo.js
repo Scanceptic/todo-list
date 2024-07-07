@@ -1,0 +1,1 @@
+/* Expands a todo item to see full details and edit it */
