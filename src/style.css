@@ -52,6 +52,15 @@ button {
 	padding: 10px;
 	width: 100px;
 	height: 50px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--bg-color-highlight);
+    color: var(--text-color-highlight);
+}
+
+button:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 #content {
