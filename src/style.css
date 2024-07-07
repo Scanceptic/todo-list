@@ -11,7 +11,7 @@
 body {
 	display: flex;
 	flex-direction: column;
-	min-height: 100vh;
+	min-height: max(100vh, 800px);
 	margin: 0;
 	padding: 0;
 	background-color: var(--bg-color-primary);
@@ -33,7 +33,7 @@ a {
 header {
 	width: 100%;
 	background-color: var(--bg-color-secondary);
-	height: 15vh;
+	height: max(15vh, 150px);
 	border-bottom: 1px solid var(--border-color);
 	display: flex;
 	flex-direction: column;
@@ -76,6 +76,7 @@ button:hover {
 	border: 1px solid var(--border-color);
 	border-top: none;
 	border-left: none;
+    min-height: 600px;
 }
 
 #sidebar > ol,
@@ -113,15 +114,16 @@ button:hover {
 	border: 1px solid var(--border-color);
 }
 
-#to-do-list > ol > li {
+.task {
 	justify-content: left;
 	padding: 20px;
 	border: 1px solid var(--border-color);
+    min-height: fit-content;
 }
 
 footer {
 	margin-top: auto;
-	height: 5vh;
+	height: max(50px,5vh);
 	display: flex;
 	justify-content: center;
 	align-items: center;
