@@ -1,9 +1,23 @@
 import "./style.css";
-import "./app.js";
+import {
+	createTask,
+	createProject,
+	toggleComplete,
+	editTask,
+	loadStorage,
+} from "./app.js";
 import "./dom.js";
 import "./localStorage.js";
 
 console.log("Link Successful");
+
+createTask(
+	"Draw a Pretty Picture",
+	"Use very expensive art supplies to create something worth much less",
+	"24/07/2024",
+	1,
+	"Drawing"
+);
 
 /* 
 	Tab-switching logic for going between different projects 

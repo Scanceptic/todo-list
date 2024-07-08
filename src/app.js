@@ -20,7 +20,7 @@ function createProject(name, colour) {
 		name,
 		colour,
 	};
-    return project;
+	return project;
 }
 
 /* Setting tasks as complete */
