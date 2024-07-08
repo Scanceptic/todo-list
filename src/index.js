@@ -18,15 +18,19 @@ function taskToDOM(task) {
 		// Add title as h3
 		const title = document.createElement("h3");
 		title.textContent = task.title;
+		title.classList.add("title");
 		// add description in smaller text underneath title
 		const description = document.createElement("div");
 		description.textContent = task.description;
+		description.classList.add("description");
 		// add priority on right top
 		const priority = document.createElement("div");
 		priority.textContent = task.priority;
+		priority.classList.add("priority");
 		// add duedate below priority on right
 		const duedate = document.createElement("div");
 		duedate.textContent = task.duedate;
+		duedate.classList.add("duedate");
 		// dont need to know the project - only affects storage loading etc.
 		// append all items
 		taskItem.appendChild(title);
