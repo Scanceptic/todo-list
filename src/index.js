@@ -25,11 +25,11 @@ function taskToDOM(task) {
 		description.classList.add("description");
 		// add priority on right top
 		const priority = document.createElement("div");
-		priority.textContent = task.priority;
+		priority.textContent = `Priority: ${task.priority}`;
 		priority.classList.add("priority");
 		// add duedate below priority on right
 		const duedate = document.createElement("div");
-		duedate.textContent = task.duedate;
+		duedate.textContent = `Due: ${task.duedate}`;
 		duedate.classList.add("duedate");
 		// dont need to know the project - only affects storage loading etc.
 		// append all items
@@ -60,7 +60,55 @@ appendTask(
 		createTodo(
 			"Iron laundry",
 			"Iron all the leftover stuff from yesterday",
-			"24//07/2024",
+			"24/07/2024",
+			1,
+			1
+		)
+	)
+);
+
+appendTask(
+	taskToDOM(
+		createTodo(
+			"Iron laundry",
+			"Iron all the leftover stuff from yesterday",
+			"24/07/2024",
+			1,
+			1
+		)
+	)
+);
+
+appendTask(
+	taskToDOM(
+		createTodo(
+			"Iron laundry",
+			"Iron all the leftover stuff from yesterday",
+			"24/07/2024",
+			1,
+			1
+		)
+	)
+);
+
+appendTask(
+	taskToDOM(
+		createTodo(
+			"Iron laundry",
+			"Iron all the leftover stuff from yesterday",
+			"24/07/2024",
+			1,
+			1
+		)
+	)
+);
+
+appendTask(
+	taskToDOM(
+		createTodo(
+			"Iron laundry",
+			"Iron all the leftover stuff from yesterday",
+			"24/07/2024",
 			1,
 			1
 		)
