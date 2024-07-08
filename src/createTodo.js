@@ -20,6 +20,7 @@ export default function createTodo(
 		project,
 		completed: false,
 	};
+	console.log(todoItem);
 	// return completed item
 	return todoItem;
 	// another module can store it in local storage under the inputted project parent
