@@ -1,3 +1,6 @@
+import setTodoComplete from "./setTodoComplete.js";
+import expandTodo from "./expandTodo.js";
+
 // Takes task in object form and returns a list item ready for appending
 export default function todoToDOM(task) {
 	try {
@@ -21,6 +24,18 @@ export default function todoToDOM(task) {
 		const duedate = document.createElement("div");
 		duedate.textContent = `Due: ${task.duedate}`;
 		duedate.classList.add("duedate");
+		// add completed button
+		const completed = document.createElement("button");
+		completed.textContent = "Mark Completed";
+		completed.addEventListener("click", () => {
+			setTodoComplete(taskItem);
+		});
+		// add extended button
+		const extended = document.createElement("button");
+		extended.textContent = "Extend";
+		extended.addEventListener("click", () => {
+			expandTodo(taskItem);
+		});
 		// dont need to know the project - only affects storage loading etc.
 		// append all items
 		taskItem.appendChild(title);
