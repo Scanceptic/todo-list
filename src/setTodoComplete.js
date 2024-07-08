@@ -6,20 +6,23 @@ import saveToStorage from "./saveToStorage.js";
 // local storage needs to know if it is completed to track between sessions
 export default function setTodoComplete(item) {
 	try {
+		const todoItem = loadFromStorage(item);
+		console.log(todoItem);
+		const todoItemDOM = document.getElementById(
+			todoItem.title.replace(" ", "-")
+		);
 		//console.log("Toggling To-do Complete...");
-		// if it has class completed remove, else add
-		if (item.classList.contains("completed") === true) {
+		// if it has prop completed remove, else add
+		if (todoItemDOM.classList.contains("completed") === true) {
 			// update DOM (classlist.remove completed)
-			item.classList.remove("completed");
+			todoItemDOM.classList.remove("completed");
 			// update storage (get storage object, set completed prop to false, save to storage)
-			const todoItem = loadFromStorage(item);
 			todoItem.completed = false;
 			saveToStorage(todoItem.project, todoItem);
-		} else if (item.classList.contains("completed") === false) {
+		} else if (todoItemDOM.classList.contains("completed") === false) {
 			// update DOM (classlist.add completed)
-			item.classList.add("completed");
+			todoItemDOM.classList.add("completed");
 			// update storage (get storage object, set completed prop to true, save to storage)
-			const todoItem = loadFromStorage(item);
 			todoItem.completed = true;
 			saveToStorage(todoItem.project, todoItem);
 		}

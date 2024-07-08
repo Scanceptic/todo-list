@@ -5,8 +5,9 @@
 */
 export default function expandTodo(item) {
 	try {
+		const todoItemDOM = document.getElementById(item.title.replace(" ", "-"));
 		// toggle expanded on classlist
-		item.classList.toggle("expanded");
+		todoItemDOM.classList.toggle("expanded");
 	} catch (error) {
 		console.log(error);
 	}

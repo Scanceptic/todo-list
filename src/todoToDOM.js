@@ -28,20 +28,24 @@ export default function todoToDOM(task) {
 		const completed = document.createElement("button");
 		completed.textContent = "Mark Completed";
 		completed.addEventListener("click", () => {
-			setTodoComplete(taskItem);
+			setTodoComplete(task);
 		});
 		// add extended button
 		const extended = document.createElement("button");
 		extended.textContent = "Extend";
 		extended.addEventListener("click", () => {
-			expandTodo(taskItem);
+			expandTodo(task);
 		});
+		// add unique id
+		taskItem.id = task.title.replace(" ", "-");
 		// dont need to know the project - only affects storage loading etc.
 		// append all items
 		taskItem.appendChild(title);
 		taskItem.appendChild(description);
 		taskItem.appendChild(priority);
 		taskItem.appendChild(duedate);
+		taskItem.appendChild(completed);
+		taskItem.appendChild(extended);
 		return taskItem;
 	} catch (error) {
 		console.log(error);
