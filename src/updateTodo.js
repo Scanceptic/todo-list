@@ -15,8 +15,9 @@ export default function updateTodo(projectName) {
 		console.log(tasks);
 		// loop through tasks list and append to todo
 		for (let i = 0; i < tasks.length; i++) {
+            console.log(tasks[i]);
 			// make task from object
-			const todoItem = createTodo(tasks[i]);
+			const todoItem = createTodo(tasks[i].title, tasks[i].description, tasks[i].duedate, tasks[i].priority, tasks[i].project);
 			console.log(todoItem);
 			// convert object to DOM
 			const todoItemDOM = todoToDOM(todoItem);
