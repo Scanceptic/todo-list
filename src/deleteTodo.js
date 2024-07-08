@@ -2,8 +2,9 @@
 export default function deleteTodo(element) {
 	//console.log("Deleting To-do...");
 	// item has to be present on the DOM to be selected for deletion
+	// remove from DOM
 	element.remove();
-	// get todo item position in storage
-	// remove from storage
-	// let another module remove from DOM
+	// get storage
+	// remove element from storage
+	// save storage
 }

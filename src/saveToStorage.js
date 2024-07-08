@@ -7,24 +7,27 @@
 */
 export default function saveToStorage(projectName, taskItem) {
 	try {
-		// if storage is empty, create array in storage
-		if (localStorage.length === 0) {
-			const taskArray = [];
-			taskArray.push(taskItem);
-			localStorage.setItem(projectName, JSON.stringify(taskArray));
-		} else {
-			// get saved array out and parsed
-			const loadedTasks = JSON.parse(localStorage.getItem("taskArray"));
+		// does project exist in storage?
+		if (localStorage.contains(projectName)) {
+			// load and parse array under project key
+			const loadedTasks = JSON.parse(localStorage.getItem(projectName));
 			console.log(loadedTasks);
-			if (typeof item === "object") {
+			if (typeof taskItem === "object") {
 				// push task to array
-				loadedTasks.push(item);
-				// save new array to storage
-				localStorage.setItem("taskArray", JSON.stringify(loadedTasks));
+				loadedTasks.push(taskItem);
+				// save new array to storage under projectname
+				localStorage.setItem(projectName, JSON.stringify(loadedTasks));
 				console.log("Object Save Successful");
 			} else {
 				console.log("Invalid Item Type:" + typeof item);
 			}
+		} else {
+			// create array
+			const loadedTasks = [];
+			// push new task to it
+			loadedTasks.push(taskItem);
+			// create new project with task array
+			localStorage.setItem(projectName, JSON.stringify(loadedTasks));
 		}
 	} catch {
 		console.log("Save failed");
