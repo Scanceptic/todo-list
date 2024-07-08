@@ -17,6 +17,10 @@ export default function updateSidebar() {
 			// TODO script event listener
 			console.log("Project button clicked: " + projectName);
 		});
+		// if even add styling class
+		if (i % 2 === 0) {
+			projectBtn.classList.add("even");
+		}
 		// append button to sidebar
 		sidebar.appendChild(projectBtn);
 	}
