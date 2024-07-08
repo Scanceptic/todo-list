@@ -1,4 +1,4 @@
-// Takes task in object form and makes a list item for appending
+// Takes task in object form and returns a list item ready for appending
 export default function todoToDOM(task) {
 	try {
 		// create list item to attach task details to

@@ -11,12 +11,14 @@ export default function createTodo(
 	// take input values provided for the todo item
 	// if values not provided for a parameter, use a default value instead
 	// create JSON formatted object that can be stored in local storage
+	// also has a completed property that is initially set to false
 	const todoItem = {
 		title,
 		description,
 		duedate,
 		priority,
 		project,
+		completed: false,
 	};
 	// return completed item
 	return todoItem;

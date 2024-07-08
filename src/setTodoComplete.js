@@ -6,3 +6,9 @@ export default function setTodoComplete(item) {
 	// toggle completed on classlist
 	item.classList.toggle("completed");
 }
+/*  
+	This should run if a button is clicked
+	it should set a property on the object to true
+	this should update the DOM (by adding class "completed")
+	this should also be saved to storage
+*/
