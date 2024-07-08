@@ -1,7 +1,6 @@
 /* Saves the inputted item to storage */
 /* Only pure object format tasks should be inputted (No DOM!) */
 /* 
-    Every task should be saved under an existing project label 
     The storage should contain a list of many tasks, each with a
     project property that can be accessed by the user to bring up
     every task with the specified project name

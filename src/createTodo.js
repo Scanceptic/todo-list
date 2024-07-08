@@ -23,3 +23,7 @@ export default function createTodo(
 	// another module can store it in local storage under the inputted project parent
 	// no DOM necessary as only storage needs to be changed
 }
+/* 
+when someone creates a new todo item, 
+the page should refresh from local storage and display the current tasklist for the selected project
+*/
