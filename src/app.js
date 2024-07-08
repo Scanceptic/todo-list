@@ -1,5 +1,8 @@
-/* Creating new todos */
+/* Creating new tasks */
+// factory function
+function createTask (title, description, dueDate, priority) {
 
-/* Setting todos as complete */
+}
+/* Setting tasks as complete */
 
-/* Editing todo */
+/* Editing a task */
