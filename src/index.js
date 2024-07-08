@@ -1,17 +1,26 @@
 import "./style.css";
-import createTodo from "./createTodo.js";
-import changeTodoPriority from "./changeTodoPriority.js";
-import deleteTodo from "./deleteTodo.js";
-import expandTodo from "./expandTodo.js";
-import setTodoComplete from "./setTodoComplete.js";
-import home from "./home.js";
-import projects from "./projects.js";
-import loadFromStorage from "./loadFromStorage.js";
-import saveToStorage from "./saveToStorage.js";
-import clearStorage from "./clearStorage.js";
-import todoToDOM from "./todoToDOM.js";
-import appendTodo from "./appendTodo.js";
 import pageload from "./pageload.js";
+import saveToStorage from "./saveToStorage.js";
+import updateTodo from "./updateTodo.js";
+import createTodo from "./createTodo.js";
+
+// add event listeners to new task button
+const newTaskBtn = document.getElementById("newtask");
+newTaskBtn.addEventListener("click", () => {
+	try {
+		let title = prompt("Enter task title:");
+		let desc = prompt("Enter description:");
+		let due = prompt("Enter due date:");
+		let priority = prompt("Enter priority:");
+		let project = prompt("Enter project title:");
+
+		const todoItem = createTodo(title, desc, due, priority, project);
+		saveToStorage(project, todoItem);
+		updateTodo(project);
+	} catch {
+		console.log("New Task Creation Failed");
+	}
+});
 
 // make a new default project if none in storage
 pageload();

@@ -1,8 +1,8 @@
 // Takes task in object form and returns a list item ready for appending
 export default function todoToDOM(task) {
 	try {
-		// create list item to attach task details to
-		const taskItem = document.createElement("li");
+		// create item to attach task details to
+		const taskItem = document.createElement("div");
 		// add task class for styling
 		taskItem.classList.add("task");
 		// Add title as h3

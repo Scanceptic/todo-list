@@ -7,26 +7,19 @@ export default function createTodo(
 	priority,
 	project
 ) {
-	//console.log("Creating todo...");
-	// take input values provided for the todo item
-	// if values not provided for a parameter, use a default value instead
-	// create JSON formatted object that can be stored in local storage
-	// also has a completed property that is initially set to false
-	const todoItem = {
-		title,
-		description,
-		duedate,
-		priority,
-		project,
-		completed: false,
-	};
-	console.log(todoItem);
-	// return completed item
-	return todoItem;
-	// another module can store it in local storage under the inputted project parent
-	// no DOM necessary as only storage needs to be changed
+	try {
+		// take input values provided for the todo item
+		// also has a completed property that is initially set to false
+		const todoItem = {
+			title,
+			description,
+			duedate,
+			priority,
+			project,
+			completed: false,
+		};
+		return todoItem;
+	} catch {
+		console.log("Create Todo Failed");
+	}
 }
-/* 
-when someone creates a new todo item, 
-the page should refresh from local storage and display the current tasklist for the selected project
-*/

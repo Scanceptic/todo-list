@@ -1,5 +1,6 @@
 import appendTodo from "./appendTodo.js";
 import createTodo from "./createTodo.js";
+import todoToDOM from "./todoToDOM.js";
 
 export default function updateTodo(projectName) {
 	// get todo list DOM
@@ -14,7 +15,9 @@ export default function updateTodo(projectName) {
 	for (let i = 0; i < tasks.length; i++) {
 		// make task from object
 		const todoItem = createTodo(tasks[i]);
+		// convert object to DOM
+		const todoItemDOM = todoToDOM(todoItem);
 		// append task to todo list
-		appendTodo(todoItem);
+		appendTodo(todoItemDOM);
 	}
 }
