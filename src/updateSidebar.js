@@ -1,3 +1,5 @@
+import updateTodo from "./updateTodo.js";
+
 export default function updateSidebar() {
 	try {
 		// get sidebar DOM
