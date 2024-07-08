@@ -7,9 +7,13 @@ export default function loadFromStorage(item) {
 	try {
 		if (typeof item === "object") {
 			// load taskList from storage and parse
-			const loadedArray = JSON.parse(localStorage.getItem("taskArray"));
+			const loadedArray = JSON.parse(localStorage.getItem(item.project));
+			// get index of task in array
+			const taskIndex = loadedArray.findIndex((element) => {
+				element.title === item.title;
+			});
 			// get item from array
-			const loadedItem = loadedArray[item];
+			const loadedItem = loadedArray[taskIndex];
 			console.log("Object Load Successful");
 			// return item
 			return loadedItem;
