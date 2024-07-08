@@ -13,21 +13,5 @@ import todoToDOM from "./todoToDOM.js";
 import appendTodo from "./appendTodo.js";
 import pageload from "./pageload.js";
 
+// make a new default project if none in storage
 pageload();
-
-/* Demo inputs (defaults) */
-/*
-for (let i = 0; i < 5; i++) {
-	appendTodo(
-		todoToDOM(
-			createTodo(
-				"Title " + i,
-				"description of the task goes here" + i,
-				`2${i}/05/24`,
-				1,
-				"Maths"
-			)
-		)
-	);
-}
-*/
