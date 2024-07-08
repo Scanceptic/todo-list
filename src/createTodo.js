@@ -7,7 +7,7 @@ export default function createTodo(
 	priority,
 	project
 ) {
-	console.log("Creating todo...");
+	//console.log("Creating todo...");
 	// take input values provided for the todo item
 	// if values not provided for a parameter, use a default value instead
 	// create JSON formatted object that can be stored in local storage

@@ -37,8 +37,8 @@ function taskToDOM(task) {
 		taskItem.appendChild(description);
 		taskItem.appendChild(priority);
 		taskItem.appendChild(duedate);
-		console.log("Task Item Creation Success");
-		console.log(taskItem);
+		//console.log("Task Item Creation Success");
+		//console.log(taskItem);
 		return taskItem;
 	} catch {
 		console.log("Task Item Creation Failed");
@@ -49,7 +49,7 @@ function appendTask(task) {
 	try {
 		const tasklist = document.getElementById("tasks");
 		tasklist.appendChild(task);
-		console.log("Task Item Append Success");
+		//console.log("Task Item Append Success");
 	} catch {
 		console.log("Task Item Append Failed");
 	}
