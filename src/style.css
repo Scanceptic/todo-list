@@ -80,9 +80,8 @@ button:hover {
 	border: 1px solid var(--border-color);
 	border-top: none;
 	border-left: none;
-	min-height: 600px;
-	display: grid;
-	grid-template-rows: min-content;
+	display: flex;
+	flex-direction: column;
 	height: 100%;
 	width: max(150px, 100%);
 	margin: 0;
@@ -95,9 +94,12 @@ button:hover {
 #sidebar > button {
 	border: none;
 	height: 100px;
+	background-color: var(--bg-color-primary);
+	font-size: 1.25rem;
+	font-weight: 700;
 }
 
-.even {
+#sidebar > button.even {
 	background-color: var(--bg-color-highlight);
 	color: var(--text-color-highlight);
 }
