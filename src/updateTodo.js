@@ -8,7 +8,7 @@ export default function updateTodo(projectName) {
 		const todo = document.getElementById("tasks");
 		// clear todo list DOM
 		while (todo.firstChild) {
-			todo.remove(todo.firstChild);
+			todo.removeChild(todo.lastChild);
 		}
 		// select inputted project in storage and parse
 		const tasks = JSON.parse(localStorage.getItem(projectName));

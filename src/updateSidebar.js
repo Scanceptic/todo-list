@@ -4,7 +4,7 @@ export default function updateSidebar() {
 		const sidebar = document.getElementById("sidebar");
 		// clear sidebar DOM
 		while (sidebar.firstChild) {
-			sidebar.remove(sidebar.firstChild);
+			sidebar.removeChild(sidebar.lastChild);
 		}
 		// loop through projects in storage
 		for (let i = 0; i < localStorage.length; i++) {
