@@ -22,17 +22,21 @@ body {
 	font-family: sans-serif;
 	display: grid;
 	grid-template-columns: 1fr 5fr;
-	height: 100px;
+	min-height: 100vh;
 }
 
 #sidebar {
 	grid-column: 1 / 2;
 	background-color: var(--bg-color-secondary);
 	height: 100%;
+	display: grid;
+	grid-template-rows: 1fr 1fr;
+	padding: 20px;
 }
 
 #content {
 	grid-column: 2 / 3;
 	background-color: var(--bg-color-primary);
 	height: 100%;
+	padding: 50px;
 }
