@@ -14,8 +14,9 @@ export default function updateSidebar() {
 		projectBtn.textContent = projectName;
 		// add eventlistener to button
 		projectBtn.addEventListener("click", () => {
-			// TODO script event listener
 			console.log("Project button clicked: " + projectName);
+            // update todo list with new project tasks
+            updateTodo(projectName);
 		});
 		// if even add styling class
 		if (i % 2 === 0) {
