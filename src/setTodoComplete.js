@@ -18,13 +18,11 @@ export default function setTodoComplete(item) {
 			todoItemDOM.classList.remove("completed");
 			// update storage (get storage object, set completed prop to false, save to storage)
 			todoItem.completed = false;
-			saveToStorage(todoItem.project, todoItem);
 		} else if (todoItemDOM.classList.contains("completed") === false) {
 			// update DOM (classlist.add completed)
 			todoItemDOM.classList.add("completed");
 			// update storage (get storage object, set completed prop to true, save to storage)
 			todoItem.completed = true;
-			saveToStorage(todoItem.project, todoItem);
 		}
 	} catch (error) {
 		console.log(error);
