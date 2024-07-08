@@ -6,13 +6,15 @@
 export default function loadFromStorage(item) {
 	try {
 		if (typeof item === "object") {
-			// load task as string
-			localStorage.getItem(item.title, JSON.stringify(item));
+			// load taskList from storage and parse
+			const loadedArray = JSON.parse(localStorage.getItem("taskArray"));
+			// get item from array
+			const loadedItem = loadedArray[item];
 			console.log("Object Load Successful");
-		} else if (typeof item === "string") {
-			// load project
-			localStorage.getItem(item, item);
-			console.log("Project Load Successful");
+			// return item
+			return loadedItem;
+		} else {
+			console.log("Invalid Item Type: " + typeof item);
 		}
 	} catch {
 		console.log("Load failed");
