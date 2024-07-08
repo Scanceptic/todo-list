@@ -9,9 +9,9 @@ export default function updateSidebar() {
 		// loop through projects in storage
 		for (let i = 0; i < localStorage.length; i++) {
 			// get project name for each position
-			const projectName = localStorage.key();
+			const projectName = localStorage.key(i);
 			// create button with textContent = projectname
-			projectBtn = document.createElement("button");
+			const projectBtn = document.createElement("button");
 			projectBtn.textContent = projectName;
 			// add eventlistener to button
 			projectBtn.addEventListener("click", () => {
