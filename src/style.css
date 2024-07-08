@@ -8,16 +8,31 @@
 	--border-color: #000000;
 }
 
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
 body {
 	margin: 0;
 	padding: 0;
 	background-color: var(--bg-color-primary);
 	color: var(--text-color-primary);
 	font-family: sans-serif;
+	display: grid;
+	grid-template-columns: 1fr 5fr;
+	height: 100px;
 }
 
-* {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+#sidebar {
+	grid-column: 1 / 2;
+	background-color: var(--bg-color-secondary);
+	height: 100%;
+}
+
+#content {
+	grid-column: 2 / 3;
+	background-color: var(--bg-color-primary);
+	height: 100%;
 }
