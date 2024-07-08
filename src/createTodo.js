@@ -1,8 +1,9 @@
 /* Creates a Todo list item based user inputs */
+/* This task item is returned in object format, and must be converted to an element for DOM */
 export default function createTodo(
 	title,
 	description,
-	dueDate,
+	duedate,
 	priority,
 	project
 ) {
@@ -13,7 +14,7 @@ export default function createTodo(
 	const todoItem = {
 		title,
 		description,
-		dueDate,
+		duedate,
 		priority,
 		project,
 	};
