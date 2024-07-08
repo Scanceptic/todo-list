@@ -52,15 +52,15 @@ button {
 	padding: 10px;
 	width: 100px;
 	height: 50px;
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    background-color: var(--bg-color-highlight);
-    color: var(--text-color-highlight);
+	border: 1px solid var(--border-color);
+	border-radius: 5px;
+	background-color: var(--bg-color-highlight);
+	color: var(--text-color-highlight);
 }
 
 button:hover {
-    text-decoration: underline;
-    cursor: pointer;
+	text-decoration: underline;
+	cursor: pointer;
 }
 
 #content {
@@ -76,11 +76,11 @@ button:hover {
 	border: 1px solid var(--border-color);
 	border-top: none;
 	border-left: none;
-    min-height: 600px;
+	min-height: 600px;
 }
 
-#sidebar > ol,
-#to-do-list > ol {
+#sidebar,
+#tasks {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
@@ -92,14 +92,10 @@ button:hover {
 	font-weight: 700;
 }
 
-#sidebar > ol > li,
-#to-do-list > ol > li {
+#sidebar > li {
 	height: 100%;
 	display: flex;
 	align-items: center;
-}
-
-#sidebar > ol > li {
 	justify-content: center;
 }
 
@@ -115,15 +111,14 @@ button:hover {
 }
 
 .task {
-	justify-content: left;
 	padding: 20px;
 	border: 1px solid var(--border-color);
-    min-height: fit-content;
+	min-height: fit-content;
 }
 
 footer {
 	margin-top: auto;
-	height: max(50px,5vh);
+	height: max(50px, 5vh);
 	display: flex;
 	justify-content: center;
 	align-items: center;
