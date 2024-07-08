@@ -7,8 +7,8 @@
 */
 export default function saveToStorage(projectName, taskItem) {
 	try {
-		// does project exist in storage?
-		if (localStorage.contains(projectName)) {
+		// if project exists in storage
+		if (localStorage.getItem(projectName) !== null) {
 			// load and parse array under project key
 			const loadedTasks = JSON.parse(localStorage.getItem(projectName));
 			console.log(loadedTasks);
