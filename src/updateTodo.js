@@ -10,20 +10,31 @@ export default function updateTodo(projectName) {
 		while (todo.firstChild) {
 			todo.removeChild(todo.lastChild);
 		}
-		// select inputted project in storage and parse
-		const tasks = JSON.parse(localStorage.getItem(projectName));
-		console.log(tasks);
-		// loop through tasks list and append to todo
-		for (let i = 0; i < tasks.length; i++) {
-            console.log(tasks[i]);
-			// make task from object
-			const todoItem = createTodo(tasks[i].title, tasks[i].description, tasks[i].duedate, tasks[i].priority, tasks[i].project);
-			console.log(todoItem);
-			// convert object to DOM
-			const todoItemDOM = todoToDOM(todoItem);
-			console.log(todoItemDOM);
-			// append task to todo list
-			appendTodo(todoItemDOM);
+		// try-catch block in case nothing is in storage
+		try {
+			// select inputted project in storage and parse
+			const tasks = JSON.parse(localStorage.getItem(projectName));
+			console.log(tasks);
+			// loop through tasks list and append to todo
+			for (let i = 0; i < tasks.length; i++) {
+				console.log(tasks[i]);
+				// make task from object
+				const todoItem = createTodo(
+					tasks[i].title,
+					tasks[i].description,
+					tasks[i].duedate,
+					tasks[i].priority,
+					tasks[i].project
+				);
+				console.log(todoItem);
+				// convert object to DOM
+				const todoItemDOM = todoToDOM(todoItem);
+				console.log(todoItemDOM);
+				// append task to todo list
+				appendTodo(todoItemDOM);
+			}
+		} catch (error) {
+			//console.log(error);
 		}
 	} catch (error) {
 		console.log(error);

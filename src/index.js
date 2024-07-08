@@ -4,6 +4,7 @@ import saveToStorage from "./saveToStorage.js";
 import updateTodo from "./updateTodo.js";
 import createTodo from "./createTodo.js";
 import updateSidebar from "./updateSidebar.js";
+import clearStorage from "./clearStorage.js";
 
 // add event listeners to new task button
 const newTaskBtn = document.getElementById("newtask");
@@ -24,6 +25,12 @@ newTaskBtn.addEventListener("click", () => {
 	}
 });
 
+const deleteBtn = document.getElementById("clear");
+deleteBtn.addEventListener("click", () => {
+	clearStorage();
+	updateSidebar();
+	updateTodo();
+});
 // make a new default project if none in storage
 pageload();
 // update todo list based on project first in storage array

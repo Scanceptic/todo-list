@@ -48,7 +48,7 @@ nav {
 	padding: 0 20%;
 }
 
-button {
+nav > button {
 	padding: 10px;
 	width: 100px;
 	height: 50px;
@@ -61,6 +61,10 @@ button {
 button:hover {
 	text-decoration: underline;
 	cursor: pointer;
+}
+
+#clear {
+	font-weight: 700;
 }
 
 #content {
@@ -77,25 +81,20 @@ button:hover {
 	border-top: none;
 	border-left: none;
 	min-height: 600px;
-}
-
-#sidebar {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
+	display: grid;
+	grid-template-rows: min-content;
 	height: 100%;
 	width: max(150px, 100%);
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
 	font-weight: 700;
+	overflow: scroll;
 }
 
-#sidebar > li {
-	height: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+#sidebar > button {
+	border: none;
+	height: 100px;
 }
 
 .even {
