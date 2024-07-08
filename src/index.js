@@ -17,8 +17,8 @@ newTaskBtn.addEventListener("click", () => {
 		const todoItem = createTodo(title, desc, due, priority, project);
 		saveToStorage(project, todoItem);
 		updateTodo(project);
-	} catch {
-		console.log("New Task Creation Failed");
+	} catch (error) {
+		console.log(error);
 	}
 });
 

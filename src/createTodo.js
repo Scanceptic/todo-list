@@ -19,7 +19,7 @@ export default function createTodo(
 			completed: false,
 		};
 		return todoItem;
-	} catch {
-		console.log("Create Todo Failed");
+	} catch (error) {
+		console.log(error);
 	}
 }

@@ -2,8 +2,7 @@
 export default function clearStorage() {
 	try {
 		localStorage.clear();
-		console.log("Clear Successful");
-	} catch {
-		console.log("Clear Unsuccessful");
+	} catch (error) {
+		console.log(error);
 	}
 }

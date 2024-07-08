@@ -29,8 +29,8 @@ export default function saveToStorage(projectName, taskItem) {
 			// create new project with task array
 			localStorage.setItem(projectName, JSON.stringify(loadedTasks));
 		}
-	} catch {
-		console.log("Save failed");
+	} catch (error) {
+		console.log(error);
 	}
 }
 /* 

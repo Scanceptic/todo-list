@@ -4,7 +4,10 @@
 	It doesnt need to be kept between sessions therefore no storage need
 */
 export default function expandTodo(item) {
-	//console.log("Toggling To-do Expand Property...");
-	// toggle expanded on classlist
-	item.classList.toggle("expanded");
+	try {
+		// toggle expanded on classlist
+		item.classList.toggle("expanded");
+	} catch (error) {
+		console.log(error);
+	}
 }

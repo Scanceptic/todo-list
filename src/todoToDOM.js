@@ -27,10 +27,8 @@ export default function todoToDOM(task) {
 		taskItem.appendChild(description);
 		taskItem.appendChild(priority);
 		taskItem.appendChild(duedate);
-		//console.log("Task Item Creation Success");
-		//console.log(taskItem);
 		return taskItem;
-	} catch {
-		console.log("Task Item Creation Failed");
+	} catch (error) {
+		console.log(error);
 	}
 }
