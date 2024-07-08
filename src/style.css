@@ -11,7 +11,7 @@
 body {
 	display: flex;
 	flex-direction: column;
-	min-height: max(100vh, 800px);
+	min-height: 100vh;
 	margin: 0;
 	padding: 0;
 	background-color: var(--bg-color-primary);
@@ -33,7 +33,7 @@ a {
 header {
 	width: 100%;
 	background-color: var(--bg-color-secondary);
-	height: max(15vh, 150px);
+	height: 20vh;
 	border-bottom: 1px solid var(--border-color);
 	display: flex;
 	flex-direction: column;
@@ -79,13 +79,12 @@ button:hover {
 	min-height: 600px;
 }
 
-#sidebar,
-#tasks {
+#sidebar {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
 	height: 100%;
-	width: 100%;
+	width: max(150px, 100%);
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
@@ -104,26 +103,19 @@ button:hover {
 	color: var(--text-color-highlight);
 }
 
-#to-do-list {
-	margin: 50px;
+#tasks {
+	margin: 50px max(50px, 10%);
 	background-color: var(--bg-color-secondary);
 	border: 1px solid var(--border-color);
+	height: fit-content;
+	max-height: 100%;
+	width: max(70vw, 200px);
+	list-style-type: none;
+	font-weight: 700;
 }
 
 .task {
 	padding: 20px;
 	border: 1px solid var(--border-color);
 	min-height: fit-content;
-}
-
-footer {
-	margin-top: auto;
-	height: max(50px, 5vh);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-weight: 700;
-	background-color: var(--bg-color-secondary);
-	padding: 20px 0;
-	border-top: 1px solid var(--border-color);
 }
