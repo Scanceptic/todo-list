@@ -12,7 +12,7 @@ export function saveTask(taskObject) {
 		// save under key: task.title
 		// JSON.stringify to store safely
 		localStorage.setItem(taskObject.title, JSON.stringify(taskObject));
-		console.log(`Task saved as: ${taskObject.title}`);
+		//console.log(`Task saved as: ${taskObject.title}`);
 	} catch (error) {
 		console.log(error);
 	}

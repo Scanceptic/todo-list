@@ -27,7 +27,7 @@ export function renderTasks(taskArray, project) {
 		for (let i = 0; i < taskArray.length; i++) {
 			//console.log("Finding project tasks...");
 			// if task.project === project parameter
-			if ((taskArray[i].project === project) || typeof project === "undefined") {
+			if (taskArray[i].project === project || typeof project === "undefined") {
 				tasksToRender.push(taskArray[i]);
 				// assemble task DOM
 				const task = document.createElement("div");
@@ -57,6 +57,14 @@ export function renderTasks(taskArray, project) {
 				const deleteTask = document.createElement("button");
 				deleteTask.textContent = "Delete";
 				deleteTask.classList.add("delete");
+				// check if task is completed
+				if (taskArray[i].completed === true) {
+					console.log("completed task");
+					task.classList.add("completed");
+				} else if (taskArray[i].completed === false) {
+					console.log("incomplete task");
+					task.classList.remove("completed");
+				}
 				// append components to task element
 				task.appendChild(title);
 				task.appendChild(description);

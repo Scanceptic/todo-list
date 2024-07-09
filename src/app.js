@@ -110,7 +110,6 @@ export function taskButtons(renderedTasks) {
 			complete[i].addEventListener("click", () => {
 				// mark complete
 				console.log("toggling complete...");
-				taskElement.classList.toggle("completed");
 				task.completed = !task.completed;
 				// delete old task from storage
 				deleteTask(task.title);
