@@ -39,11 +39,22 @@ export function renderTasks(taskArray, project) {
 				const priority = document.createElement("div");
 				priority.textContent = taskArray[i].priority;
 				priority.classList.add("priority");
+				// create complete and edit buttons
+				const edit = document.createElement("button");
+				edit.addEventListener("click", () => {});
+				edit.textContent = "Edit"
+				edit.classList.add("edit");
+				const complete = document.createElement("button");
+				complete.addEventListener("click", () => {});
+				complete.textContent = "Complete";
+				complete.classList.add("complete");
 				// append components to task element
 				task.appendChild(title);
 				task.appendChild(description);
 				task.appendChild(dueDate);
 				task.appendChild(priority);
+				task.appendChild(edit);
+				task.appendChild(complete);
 				// append task element to tasks div
 				taskList.appendChild(task);
 			}
