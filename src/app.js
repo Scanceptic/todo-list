@@ -9,6 +9,8 @@ export function createTask(title, description, dueDate, priority, project) {
 		// check for acceptable parameters types and formats
 		// title, description and projectname can be anything since they are stored as strings
 
+		// is title unique?
+
 		// priority must be number above 0
 		if (typeof priority !== "number" || priority < 1) {
 			console.log("Priority was not a number or was less than 1");

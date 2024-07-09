@@ -77,6 +77,10 @@ export function renderProjects(taskArray) {
 				projectElement.classList.add("project");
 				projectElement.id = projectTitle;
 				projectElement.textContent = projectTitle;
+                // add onclick event listener
+                projectElement.addEventListener("click", () => {
+                    renderTasks(taskArray, projectTitle);
+                })
 				// append project DOM element to projects div
 				projects.appendChild(projectElement);
 			}
