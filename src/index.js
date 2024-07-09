@@ -13,25 +13,25 @@ const taskArray = createTaskArray();
 renderProjects(taskArray);
 renderTasks(taskArray, "default-project");
 
-try {
-	const createTaskButton = document.getElementById("new-task");
+const createTaskButton = document.getElementById("new-task");
 
-	createTaskButton.addEventListener("click", () => {
-		const taskObject = createTask(
-			"Example Task" + prompt("Enter number"),
-			"An example task of something you can create using a button",
-			"26/07/2024",
-			1,
-			"created-project"
-		);
-		// render projects
-		//renderProjects(taskArray);
-		// render tasks for inputted project
-		renderTasks(taskObject.project);
-	});
-} catch (error) {
-	console.log(error);
-}
+createTaskButton.addEventListener("click", () => {
+	const taskObject = createTask(
+		"Example Task" + prompt("Enter number"),
+		"An example task of something you can create using a button",
+		"26/07/2024",
+		1,
+		"created-project"
+	);
+	// push task to task array
+	taskArray.push(taskObject);
+	// save new task to localStorage
+	saveTask(taskObject);
+	// render projects
+	renderProjects(taskArray);
+	// render tasks for inputted project
+	renderTasks(taskArray, taskObject.project);
+});
 
 /* 
 	Tab-switching logic for going between different projects 
