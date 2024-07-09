@@ -1,13 +1,29 @@
 // Do storage last
 
 /* 
-    Saves projects and todos to localstorage
-    Called when any new project or todo is created
+    Saves task to localstorage
+    Called when a new task is created
+    Called when a task is edited
+    Parameter needed, JS object containing all task properties
 */
-function saveProjects() {}
+function saveTask(taskObject) {
+	// save under key: task.title
+	// JSON.stringify to store safely
+}
 
 /*
-    Looks for data in localStorage
+    Looks for tasks in localStorage
     Called when app is first loaded
+        No parameters needed, all tasks are brought out into the session
 */
-function firstLoad() {}
+function load() {
+	// load all tasks
+	// return loaded tasks
+}
+/* 
+    Called when task is edited to delete old task
+        Parameter needed, title of task used to find key-value pair and delete the old task
+*/
+function deleteTask(taskTitle) {
+	// delete from localStorage using key: taskTitle
+}
