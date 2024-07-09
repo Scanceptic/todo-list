@@ -3,7 +3,6 @@ import {
 	createTask,
 	toggleComplete,
 	editTask,
-	getTaskArray,
 	createTaskArray,
 } from "./app.js";
 import { renderTasks, renderProjects } from "./dom.js";

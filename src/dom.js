@@ -1,7 +1,5 @@
 /* This is where all the DOM-related stuff is kept */
 
-import { getTaskArray } from "./app.js";
-
 /* 
     Render Tasks to DOM
     Requires parameter to determine which tasks to render

@@ -28,6 +28,22 @@ export function createTask(title, description, dueDate, priority, project) {
 			priority,
 			project,
 			completed: false,
+			toggleComplete: function (task) {
+				try {
+					console.log("Toggling task complete...");
+					task.completed = !task.completed;
+					return taskObject;
+				} catch (error) {
+					console.log(error);
+				}
+			},
+			editTask: function () {
+				try {
+					console.log("Editing task...");
+				} catch (error) {
+					console.log(error);
+				}
+			},
 		};
 
 		return taskObject;
@@ -62,39 +78,6 @@ export function createTaskArray() {
 		const taskArray = loadedTasks;
 		console.log("Loaded tasks");
 		return taskArray;
-	} catch (error) {
-		console.log(error);
-	}
-}
-
-// get an array of the tasks in memory
-export function getTaskArray(task) {
-	try {
-		console.log("Getting task array...");
-		// if a task parameter is provided push to memory
-		if (task) {
-			taskArray.push(task);
-		}
-		return taskArray;
-	} catch (error) {
-		console.log(error);
-	}
-}
-
-/* Setting tasks as complete */
-export function toggleComplete(task) {
-	try {
-		console.log("Toggling task complete...");
-		task.completed = !task.completed;
-		return taskObject;
-	} catch (error) {
-		console.log(error);
-	}
-}
-/* Editing a task */
-export function editTask() {
-	try {
-		console.log("Editing task...");
 	} catch (error) {
 		console.log(error);
 	}
