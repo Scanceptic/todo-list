@@ -5,27 +5,31 @@ import { saveTask, loadTasks, deleteTask } from "./localStorage.js";
 
 const createTaskButton = document.getElementById("new-task");
 createTaskButton.addEventListener("click", () => {
-	const taskObject = createTask(
-		"Example Task" + prompt("Enter number"),
-		"Use very expensive art supplies to create something worth much less",
-		"24/07/2024",
-		1,
-		"Drawing"
-	);
-	// check title is unique
-	// loop through current array of tasks
-	console.log(getTaskArray().length)
-	for (let i = 0; i < getTaskArray().length; i++) {
-		// if task.title === title parameter
-		if (getTaskArray()[i].title === taskObject.title) {
-			// error
-			console.log("Task title is not unique");
-			return null;
+	try {
+		const taskObject = createTask(
+			"Example Task" + prompt("Enter number"),
+			"Use very expensive art supplies to create something worth much less",
+			"24/07/2024",
+			1,
+			"Drawing"
+		);
+		// check title is unique
+		// loop through current array of tasks
+		console.log(getTaskArray().length)
+		for (let i = 0; i < getTaskArray().length; i++) {
+			// if task.title === title parameter
+			if (getTaskArray()[i].title === taskObject.title) {
+				// error
+				console.log("Task title is not unique");
+				return null;
+			}
 		}
+		getTaskArray(taskObject);
+		console.log(taskArray);
+		renderTasks(taskObject.project);
+	} catch (error) {
+		console.log(error);
 	}
-	getTaskArray(taskObject);
-	console.log(taskArray);
-	renderTasks(taskObject.project);
 });
 
 /* 

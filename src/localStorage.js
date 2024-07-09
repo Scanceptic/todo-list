@@ -26,6 +26,7 @@ export function loadTasks() {
 		console.log(
 			`after pushing from localStorage, loadedTasks is: ${loadedTasks}`
 		);
+        // if there were no loaded tasks, create an example task
 		// return loaded tasks
 		return loadedTasks;
 	} catch (error) {

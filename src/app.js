@@ -32,14 +32,19 @@ export function createTask(title, description, dueDate, priority, project) {
 		console.log(error);
 	}
 }
+
+export function createTaskArray() {
+	
+}
+
 // add task to memory, or just get an array of the tasks in memory
 export function getTaskArray(task) {
 	try {
 		// if no tasks in array, get the tasks from localStorage
 		if (typeof taskArray === "undefined") {
+			console.log("taskArray is undefined - loading from localStorage");
 			// load from localstorage
 			const taskArray = loadTasks();
-			console.log(`after calling loadTasks, taskArray is: ${taskArray}`);
 		}
 		if (task) {
 			taskArray.push(task);
