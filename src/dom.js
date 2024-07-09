@@ -66,14 +66,17 @@ export function renderProjects(taskArray) {
 		const projectsArray = [];
 		// loop through all tasks in memory
 		for (let i = 0; i < taskArray.length; i++) {
+			// get item project
+			const projectTitle = taskArray[i].project;
 			// if task.project is not already in the projects array
-			if (projectsArray.includes(taskArray[i].project) === false) {
+			if (projectsArray.includes(projectTitle) === false) {
 				// push task.project property to array
-				projectsArray.push(taskArray[i].project);
+				projectsArray.push(projectTitle);
 				// create project DOM element
-				projectElement = document.createElement("button");
+				const projectElement = document.createElement("button");
 				projectElement.classList.add("project");
-				projectElement.id = taskArray[i];
+				projectElement.id = projectTitle;
+				projectElement.textContent = projectTitle;
 				// append project DOM element to projects div
 				projects.appendChild(projectElement);
 			}
