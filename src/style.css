@@ -116,3 +116,12 @@ button:hover {
 	grid-column: 3 / 4;
 	background-color: red;
 }
+
+.completed {
+	background-color: beige;
+}
+
+.completed > .title,
+.completed > .description {
+	text-decoration: line-through;
+}
