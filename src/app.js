@@ -1,3 +1,4 @@
+import { renderProjects, renderTasks } from "./dom.js";
 import { loadTasks, saveTask } from "./localStorage.js";
 
 // Everything in app.js should work with pure JS objects - no HTML, no localStorage
@@ -98,6 +99,10 @@ export function taskButtons(renderedTasks) {
 				deleteTask(task.title);
 				// save new task
 				saveTask(task);
+				// re-render
+				const taskArray = loadTasks();
+				renderProjects(taskArray);
+				renderTasks(taskArray, task.project);
 			});
 			const complete = taskElement.querySelector(".complete");
 			complete.addEventListener("click", () => {
@@ -109,11 +114,19 @@ export function taskButtons(renderedTasks) {
 				deleteTask(task.title);
 				// save new task
 				saveTask(task);
+				//re-render
+				const taskArray = loadTasks();
+				renderProjects(taskArray);
+				renderTasks(taskArray, task.project);
 			});
 			const deleteTask = taskElement.querySelector(".delete");
 			deleteTask.addEventListener("click", () => {
 				// delete task from storage
 				deleteTask(task.title);
+				// re-render
+				const taskArray = loadTasks();
+				renderProjects(taskArray);
+				renderTasks(taskArray, task.project);
 			});
 		}
 	} catch (error) {
