@@ -41,9 +41,9 @@ export function createTask(title, description, dueDate, priority, project) {
 */
 export function createTaskArray() {
 	try {
-		const taskArray = [];
 		console.log("Loading taskArray...");
-		if (loadTasks() === false) {
+		const loadedTasks = loadTasks();
+		if (loadedTasks === false) {
 			console.log("No tasks in localStorage...");
 			const taskObject = createTask(
 				"Example Task",
@@ -52,13 +52,13 @@ export function createTaskArray() {
 				1,
 				"default-project"
 			);
-			console.log("Adding task to taskArray...");
-			taskArray.push(taskObject);
 			console.log("Saving task to localStorage...");
 			saveTask(taskObject);
-		} else {
-			taskArray = loadTasks();
 		}
+		// load tasks to taskArray
+		const taskArray = loadedTasks;
+		console.log("taskArray is:");
+		console.log(taskArray);
 		return taskArray;
 	} catch (error) {
 		console.log(error);

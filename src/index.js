@@ -4,8 +4,8 @@ import { renderTasks, renderProjects } from "./dom.js";
 import { saveTask, loadTasks, deleteTask } from "./localStorage.js";
 
 createTaskArray();
-renderProjects();
-renderTasks();
+//renderProjects();
+//renderTasks();
 
 const createTaskButton = document.getElementById("new-task");
 createTaskButton.addEventListener("click", () => {
