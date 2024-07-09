@@ -81,8 +81,17 @@ export function getTaskArray(task) {
 
 /* Setting tasks as complete */
 export function toggleComplete(task) {
-	task.completed = !task.completed;
-	return taskObject;
+	try {
+		task.completed = !task.completed;
+		return taskObject;
+	} catch (error) {
+		console.log(error);
+	}
 }
 /* Editing a task */
-export function editTask() {}
+export function editTask() {
+	try {
+	} catch (error) {
+		console.log(error);
+	}
+}

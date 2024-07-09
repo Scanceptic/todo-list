@@ -7,10 +7,14 @@
     Parameter needed, JS object containing all task properties
 */
 export function saveTask(taskObject) {
-	// save under key: task.title
-	// JSON.stringify to store safely
-	localStorage.setItem(taskObject.title, JSON.stringify(taskObject));
-	console.log(`Task saved as: ${taskObject.title}`);
+	try {
+		// save under key: task.title
+		// JSON.stringify to store safely
+		localStorage.setItem(taskObject.title, JSON.stringify(taskObject));
+		console.log(`Task saved as: ${taskObject.title}`);
+	} catch (error) {
+		console.log(error);
+	}
 }
 
 /*
@@ -44,5 +48,9 @@ export function loadTasks() {
     Parameter needed, title of task used to find key-value pair and delete the old task
 */
 export function deleteTask(taskTitle) {
-	// delete from localStorage using key: taskTitle
+	try {
+		// delete from localStorage using key: taskTitle
+	} catch (error) {
+		console.log(error);
+	}
 }

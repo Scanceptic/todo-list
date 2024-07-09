@@ -1,5 +1,7 @@
 /* This is where all the DOM-related stuff is kept */
 
+import { getTaskArray } from "./app.js";
+
 /* 
     Render Tasks to DOM
     Requires parameter to determine which tasks to render
@@ -9,7 +11,7 @@
         Project button is clicked
         Task is toggled as complete 
 */
-export function renderTasks(project) {
+export function renderTasks(taskArray, project) {
 	try {
 		// get task div by id
 		const taskList = document.getElementById("tasks");
@@ -50,14 +52,33 @@ export function renderTasks(project) {
     Render Projects in sidebar
     Called after:
         New project is created by making a task with a unique project property 
+        on pageload
 */
-export function renderProjects() {
-	// get sidebar div by id
-	// clear projects from sidebar (while div.lastChild div.removeChild(div.lastChild))
-	// make empty projects array
-	// loop through all tasks in memory
-	// if task.project is not already in the projects array
-	// push task.project property to array
-	// loop through projects array
-	// append project to sidebar
+export function renderProjects(taskArray) {
+	try {
+		// get projects div by id
+		const projects = document.getElementById("projects");
+		// clear projects from projects (while div.lastChild div.removeChild(div.lastChild))
+		while (projects.lastChild) {
+			projects.removeChild(projects.lastChild);
+		}
+		// make empty projects array
+		const projectsArray = [];
+		// loop through all tasks in memory
+		for (let i = 0; i < taskArray.length; i++) {
+			// if task.project is not already in the projects array
+			if (projectsArray.includes(taskArray[i].project) === false) {
+				// push task.project property to array
+				projectsArray.push(taskArray[i].project);
+				// create project DOM element
+				projectElement = document.createElement("button");
+				projectElement.classList.add("project");
+				projectElement.id = taskArray[i];
+				// append project DOM element to projects div
+				projects.appendChild(projectElement);
+			}
+		}
+	} catch (error) {
+		console.log(error);
+	}
 }
