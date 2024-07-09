@@ -87,10 +87,13 @@ export function createTaskArray() {
 // loop through tasks adding event listeners to buttons
 export function taskButtons(renderedTasks) {
 	try {
+		const edit = document.querySelector(".edit");
+		const complete = document.querySelector(".complete");
+		const deleteTask = document.querySelector(".delete");
 		for (let i = 0; i < renderedTasks.length; i++) {
 			const task = renderedTasks[i];
 			const taskElement = document.getElementById(task.title);
-			const edit = task.querySelector(".edit");
+
 			edit.addEventListener("click", () => {
 				// do edits
 				console.log("editing...");
@@ -104,7 +107,7 @@ export function taskButtons(renderedTasks) {
 				renderProjects(taskArray);
 				renderTasks(taskArray, task.project);
 			});
-			const complete = taskElement.querySelector(".complete");
+
 			complete.addEventListener("click", () => {
 				// mark complete
 				console.log("toggling complete...");
@@ -119,7 +122,7 @@ export function taskButtons(renderedTasks) {
 				renderProjects(taskArray);
 				renderTasks(taskArray, task.project);
 			});
-			const deleteTask = taskElement.querySelector(".delete");
+
 			deleteTask.addEventListener("click", () => {
 				// delete task from storage
 				deleteTask(task.title);
