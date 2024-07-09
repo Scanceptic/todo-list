@@ -10,21 +10,29 @@ renderTasks(taskArray, projectNames[0]);
 const createTaskButton = document.getElementById("new-task");
 
 createTaskButton.addEventListener("click", () => {
-	const taskObject = createTask(
-		"Example Task" + prompt("Enter number"),
-		"An example task of something you can create using a button",
-		"26/07/2024",
-		1,
-		"created-project"
-	);
-	// push task to task array
-	taskArray.push(taskObject);
-	// save new task to localStorage
-	saveTask(taskObject);
-	// render projects
-	renderProjects(taskArray);
-	// render tasks for inputted project
-	renderTasks(taskArray, taskObject.project);
+	try {
+		const taskObject = createTask(
+			prompt("Enter task title:"),
+			prompt("Enter task description:"),
+			prompt("Enter task date:"),
+			parseInt(prompt("Enter task priority:")),
+			prompt("Enter project name for this task:")
+		);
+		if (taskObject !== null) {
+			// push task to task array
+			taskArray.push(taskObject);
+			// save new task to localStorage
+			saveTask(taskObject);
+			// render projects
+			renderProjects(taskArray);
+			// render tasks for inputted project
+			renderTasks(taskArray, taskObject.project);
+		} else {
+			console.log("Task creation failed");
+		}
+	} catch (error) {
+		console.log(error);
+	}
 });
 
 /* 
