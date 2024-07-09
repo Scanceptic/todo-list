@@ -1,5 +1,5 @@
 import { renderProjects, renderTasks } from "./dom.js";
-import { loadTasks, saveTask } from "./localStorage.js";
+import { loadTasks, saveTask, deleteTask } from "./localStorage.js";
 
 // Everything in app.js should work with pure JS objects - no HTML, no localStorage
 /* Creating new task objects */
@@ -61,7 +61,7 @@ export function createTask(title, description, dueDate, priority, project) {
 */
 export function createTaskArray() {
 	try {
-		console.log("Creating taskArray...");
+		//console.log("Creating taskArray...");
 		const loadedTasks = loadTasks();
 		if (loadedTasks === false) {
 			console.log("Creating default task...");
@@ -72,12 +72,12 @@ export function createTaskArray() {
 				1,
 				"default-project"
 			);
-			console.log("Saving task to localStorage...");
+			//console.log("Saving task to localStorage...");
 			saveTask(taskObject);
 		}
 		// load tasks to taskArray
 		const taskArray = loadedTasks;
-		console.log("Loaded tasks");
+		//console.log("Loaded tasks");
 		return taskArray;
 	} catch (error) {
 		console.log(error);
@@ -89,7 +89,7 @@ export function taskButtons(renderedTasks) {
 	try {
 		const edit = document.getElementsByClassName("edit");
 		const complete = document.getElementsByClassName("complete");
-		const deleteTask = document.getElementsByClassName("delete");
+		const deleteBtn = document.getElementsByClassName("delete");
 		for (let i = 0; i < renderedTasks.length; i++) {
 			const task = renderedTasks[i];
 			const taskElement = document.getElementById(task.title);
@@ -122,7 +122,7 @@ export function taskButtons(renderedTasks) {
 				renderTasks(taskArray, task.project);
 			});
 
-			deleteTask[i].addEventListener("click", () => {
+			deleteBtn[i].addEventListener("click", () => {
 				// delete task from storage
 				deleteTask(task.title);
 				// re-render

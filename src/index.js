@@ -4,8 +4,8 @@ import { renderTasks, renderProjects } from "./dom.js";
 import { saveTask } from "./localStorage.js";
 
 const taskArray = createTaskArray();
-renderProjects(taskArray);
-renderTasks(taskArray);
+const projectNames = renderProjects(taskArray);
+renderTasks(taskArray, projectNames[0]);
 
 const createTaskButton = document.getElementById("new-task");
 

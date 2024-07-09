@@ -13,7 +13,7 @@ import { taskButtons } from "./app";
 */
 export function renderTasks(taskArray, project) {
 	try {
-		console.log("Rendering tasks...");
+		//console.log("Rendering tasks...");
 		// get task div by id
 		const taskList = document.getElementById("tasks");
 		// clear tasks from div id (while div.lastchild div.removeChild(div.lastChild))
@@ -69,7 +69,7 @@ export function renderTasks(taskArray, project) {
 				taskList.appendChild(task);
 			}
 		}
-		console.log("New project tasks rendered");
+		//console.log("New project tasks rendered");
 		taskButtons(tasksToRender);
 		return tasksToRender;
 	} catch (error) {
@@ -85,7 +85,7 @@ export function renderTasks(taskArray, project) {
 */
 export function renderProjects(taskArray) {
 	try {
-		console.log("Rendering projects...");
+		//console.log("Rendering projects...");
 		// get projects div by id
 		const projects = document.getElementById("projects");
 		// clear projects from projects (while div.lastChild div.removeChild(div.lastChild))
@@ -117,7 +117,8 @@ export function renderProjects(taskArray) {
 				projects.appendChild(projectElement);
 			}
 		}
-		console.log("New projects rendered");
+		//console.log("New projects rendered");
+		return projectsArray;
 	} catch (error) {
 		console.log(error);
 	}
