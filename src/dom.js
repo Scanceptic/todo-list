@@ -31,12 +31,16 @@ export function renderTasks(taskArray, project) {
 				task.classList.add("task");
 				const title = document.createElement("h3");
 				title.textContent = taskArray[i].title;
+				title.classList.add("title");
 				const description = document.createElement("div");
 				description.textContent = taskArray[i].description;
+				description.classList.add("description");
 				const dueDate = document.createElement("div");
 				dueDate.textContent = taskArray[i].dueDate;
+				dueDate.classList.add("dueDate");
 				const priority = document.createElement("div");
 				priority.textContent = taskArray[i].priority;
+				priority.classList.add("priority");
 				// append components to task element
 				task.appendChild(title);
 				task.appendChild(description);
