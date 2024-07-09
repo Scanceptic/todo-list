@@ -28,7 +28,7 @@ export function loadTasks() {
 		//console.log("Loading tasks...");
 		// if nothing in storage
 		if (localStorage.length === 0) {
-			c//onsole.log("Nothing found in storage");
+			//console.log("Nothing found in storage");
 			return false;
 		} else {
 			// load all tasks

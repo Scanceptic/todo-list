@@ -57,10 +57,10 @@ export function renderTasks(taskArray, project) {
 				deleteTask.classList.add("delete");
 				// check if task is completed
 				if (taskArray[i].completed === true) {
-					console.log("completed task");
+					//console.log("completed task");
 					task.classList.add("completed");
 				} else if (taskArray[i].completed === false) {
-					console.log("incomplete task");
+					//console.log("incomplete task");
 					task.classList.remove("completed");
 				}
 				// append components to task element

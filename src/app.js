@@ -58,6 +58,7 @@ export function createTaskArray() {
 			);
 			//console.log("Saving task to localStorage...");
 			saveTask(taskObject);
+			return [taskObject];
 		}
 		// load tasks to taskArray
 		const taskArray = loadedTasks;
