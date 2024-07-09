@@ -1,36 +1,39 @@
 import "./style.css";
-import { createTask, createTaskArray } from "./app.js";
-import { renderTasks, renderProjects } from "./dom.js";
-import { saveTask } from "./localStorage.js";
+import pageload from "./pageload.js";
+import saveToStorage from "./saveToStorage.js";
+import updateTodo from "./updateTodo.js";
+import createTodo from "./createTodo.js";
+import updateSidebar from "./updateSidebar.js";
+import clearStorage from "./clearStorage.js";
 
-const taskArray = createTaskArray();
-const projectNames = renderProjects(taskArray);
-renderTasks(taskArray, projectNames[0]);
+// add event listeners to new task button
+const newTaskBtn = document.getElementById("newtask");
+newTaskBtn.addEventListener("click", () => {
+	try {
+		let title = prompt("Enter task title:");
+		let desc = prompt("Enter description:");
+		let due = prompt("Enter due date:");
+		let priority = prompt("Enter priority:");
+		let project = prompt("Enter project title:");
 
-const createTaskButton = document.getElementById("new-task");
-
-createTaskButton.addEventListener("click", () => {
-	const taskObject = createTask(
-		"Example Task" + prompt("Enter number"),
-		"An example task of something you can create using a button",
-		"26/07/2024",
-		1,
-		"created-project"
-	);
-	// push task to task array
-	taskArray.push(taskObject);
-	// save new task to localStorage
-	saveTask(taskObject);
-	// render projects
-	renderProjects(taskArray);
-	// render tasks for inputted project
-	renderTasks(taskArray, taskObject.project);
+		const todoItem = createTodo(title, desc, due, priority, project);
+		saveToStorage(project, todoItem);
+		updateSidebar();
+		updateTodo(project);
+	} catch (error) {
+		console.log(error);
+	}
 });
 
-/* 
-	Tab-switching logic for going between different projects 
-	Look at restaurant page for example
-	Create event listener for each project button
-	wipe out all the contents of div id="tasks" and then
-	append all the tasks within that project
-*/
+const deleteBtn = document.getElementById("clear");
+deleteBtn.addEventListener("click", () => {
+	clearStorage();
+	updateSidebar();
+	updateTodo();
+});
+// make a new default project if none in storage
+pageload();
+// update todo list based on project first in storage array
+updateTodo(localStorage.key(0));
+// update sidebar
+updateSidebar();
