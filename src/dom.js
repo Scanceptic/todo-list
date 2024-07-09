@@ -53,6 +53,10 @@ export function renderTasks(taskArray, project) {
 				const complete = document.createElement("button");
 				complete.textContent = "Complete";
 				complete.classList.add("complete");
+				// create delete button
+				const deleteTask = document.createElement("button");
+				deleteTask.textContent = "Delete";
+				deleteTask.classList.add("delete");
 				// append components to task element
 				task.appendChild(title);
 				task.appendChild(description);
@@ -60,6 +64,7 @@ export function renderTasks(taskArray, project) {
 				task.appendChild(priority);
 				task.appendChild(edit);
 				task.appendChild(complete);
+				task.appendChild(deleteTask);
 				// append task element to tasks div
 				taskList.appendChild(task);
 			}

@@ -85,15 +85,38 @@ export function createTaskArray() {
 
 // loop through tasks adding event listeners to buttons
 export function taskButtons(renderedTasks) {
-	for (let i = 0; i < renderedTasks.length; i++) {
-		const task = document.getElementById(renderedTasks[i].title);
-		const edit = task.querySelector(".edit");
-		edit.addEventListener("click", () => {
-			console.log("editing...");
-		});
-		const complete = task.querySelector(".complete");
-		complete.addEventListener("click", () => {
-			console.log("completing...");
-		});
+	try {
+		for (let i = 0; i < renderedTasks.length; i++) {
+			const task = renderedTasks[i];
+			const taskElement = document.getElementById(task.title);
+			const edit = task.querySelector(".edit");
+			edit.addEventListener("click", () => {
+				// do edits
+				console.log("editing...");
+				taskElement.classList.toggle("edit");
+				// delete old task from storage
+				deleteTask(task.title);
+				// save new task
+				saveTask(task);
+			});
+			const complete = taskElement.querySelector(".complete");
+			complete.addEventListener("click", () => {
+				// mark complete
+				console.log("toggling complete...");
+				taskElement.classList.toggle("complete");
+				task.completed = !task.completed;
+				// delete old task from storage
+				deleteTask(task.title);
+				// save new task
+				saveTask(task);
+			});
+			const deleteTask = taskElement.querySelector(".delete");
+			deleteTask.addEventListener("click", () => {
+				// delete task from storage
+				deleteTask(task.title);
+			});
+		}
+	} catch (error) {
+		console.log(error);
 	}
 }

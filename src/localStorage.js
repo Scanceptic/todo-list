@@ -28,11 +28,11 @@ export function loadTasks() {
 		console.log("Loading tasks...");
 		// if nothing in storage
 		if (localStorage.length === 0) {
-            console.log("Nothing found in storage");
+			console.log("Nothing found in storage");
 			return false;
 		} else {
 			// load all tasks
-            console.log("Found tasks in storage, loading...");
+			console.log("Found tasks in storage, loading...");
 			const loadedTasks = [];
 			for (let i = 0; i < localStorage.length; i++) {
 				let key = localStorage.key(i);
@@ -53,6 +53,7 @@ export function deleteTask(taskTitle) {
 	try {
 		console.log("Deleting tasks...");
 		// delete from localStorage using key: taskTitle
+		localStorage.removeItem(taskTitle);
 	} catch (error) {
 		console.log(error);
 	}
