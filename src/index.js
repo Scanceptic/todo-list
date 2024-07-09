@@ -1,11 +1,7 @@
 import "./style.css";
-import { createTask, toggleComplete, editTask } from "./app.js";
+import { createTask, toggleComplete, editTask, getTaskArray } from "./app.js";
 import { renderTasks, renderProjects } from "./dom.js";
 import { saveTask, loadTasks, deleteTask } from "./localStorage.js";
-
-console.log("Link Successful");
-
-const taskArray = [];
 
 const createTaskButton = document.getElementById("new-task");
 createTaskButton.addEventListener("click", () => {
@@ -18,15 +14,15 @@ createTaskButton.addEventListener("click", () => {
 	);
 	// check title is unique
 	// loop through current array of tasks
-	for (let i = 0; i < taskArray.length; i++) {
+	for (let i = 0; i < getTaskArray.length; i++) {
 		// if task.title === title parameter
-		if (taskArray[i].title === taskObject.title) {
+		if (getTaskArray[i].title === taskObject.title) {
 			// error
 			console.log("Task title is not unique");
 			return null;
 		}
 	}
-	taskArray.push(taskObject);
+	getTaskArray(taskObject);
 	console.log(taskArray);
 	renderTasks(taskObject.project);
 });

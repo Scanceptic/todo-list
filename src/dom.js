@@ -10,35 +10,39 @@
         Task is toggled as complete 
 */
 export function renderTasks(project) {
-	// get task div by id
-	const taskList = document.getElementById("tasks");
-	// clear tasks from div id (while div.lastchild div.removeChild(div.lastChild))
-	while (taskList.lastChild) {
-		taskList.removeChild(taskList.lastChild);
-	}
-	// loop through all tasks in memory
-	for (let i = 0; i < taskArray.length; i++) {
-		// if task.project === project parameter
-		if (taskArray[i].project === project) {
-			// assemble task DOM
-			const task = document.createElement("div");
-			task.classList.add("task");
-			const title = document.createElement("h3");
-			title.textContent = taskArray[i].title;
-			const description = document.createElement("div");
-			description.textContent = taskArray[i].description;
-			const dueDate = document.createElement("div");
-			dueDate.textContent = taskArray[i].dueDate;
-			const priority = document.createElement("div");
-			priority.textContent = taskArray[i].priority;
-			// append components to task element
-			task.appendChild(title);
-			task.appendChild(description);
-			task.appendChild(dueDate);
-			task.appendChild(priority);
-			// append task element to tasks div
-			taskList.appendChild(task);
+	try {
+		// get task div by id
+		const taskList = document.getElementById("tasks");
+		// clear tasks from div id (while div.lastchild div.removeChild(div.lastChild))
+		while (taskList.lastChild) {
+			taskList.removeChild(taskList.lastChild);
 		}
+		// loop through all tasks in memory
+		for (let i = 0; i < taskArray.length; i++) {
+			// if task.project === project parameter
+			if (taskArray[i].project === project) {
+				// assemble task DOM
+				const task = document.createElement("div");
+				task.classList.add("task");
+				const title = document.createElement("h3");
+				title.textContent = taskArray[i].title;
+				const description = document.createElement("div");
+				description.textContent = taskArray[i].description;
+				const dueDate = document.createElement("div");
+				dueDate.textContent = taskArray[i].dueDate;
+				const priority = document.createElement("div");
+				priority.textContent = taskArray[i].priority;
+				// append components to task element
+				task.appendChild(title);
+				task.appendChild(description);
+				task.appendChild(dueDate);
+				task.appendChild(priority);
+				// append task element to tasks div
+				taskList.appendChild(task);
+			}
+		}
+	} catch (error) {
+		console.log(error);
 	}
 }
 

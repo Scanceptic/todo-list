@@ -18,7 +18,12 @@ export function saveTask(taskObject) {
 */
 export function loadTasks() {
 	// load all tasks
+    const loadedTasks = [];
+    for (let i=0; i<localStorage.length; i++) {
+        loadedTasks.push(localStorage.key[i]);
+    }
 	// return loaded tasks
+    return loadedTasks;
 }
 /* 
     Called when task is edited to delete old task (before edited task is saved)
