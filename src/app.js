@@ -29,22 +29,6 @@ export function createTask(title, description, dueDate, priority, project) {
 			priority,
 			project,
 			completed: false,
-			toggleComplete: function (task) {
-				try {
-					console.log("Toggling task complete...");
-					task.completed = !task.completed;
-					return taskObject;
-				} catch (error) {
-					console.log(error);
-				}
-			},
-			editTask: function () {
-				try {
-					console.log("Editing task...");
-				} catch (error) {
-					console.log(error);
-				}
-			},
 		};
 
 		return taskObject;
@@ -79,57 +63,6 @@ export function createTaskArray() {
 		const taskArray = loadedTasks;
 		//console.log("Loaded tasks");
 		return taskArray;
-	} catch (error) {
-		console.log(error);
-	}
-}
-
-// loop through tasks adding event listeners to buttons
-export function taskButtons(renderedTasks) {
-	try {
-		const edit = document.getElementsByClassName("edit");
-		const complete = document.getElementsByClassName("complete");
-		const deleteBtn = document.getElementsByClassName("delete");
-		for (let i = 0; i < renderedTasks.length; i++) {
-			const task = renderedTasks[i];
-			const taskElement = document.getElementById(task.title);
-			edit[i].addEventListener("click", () => {
-				// do edits
-				console.log("editing...");
-				taskElement.classList.toggle("editing");
-				// delete old task from storage
-				deleteTask(task.title);
-				// save new task
-				saveTask(task);
-				// re-render
-				const taskArray = loadTasks();
-				renderProjects(taskArray);
-				renderTasks(taskArray, task.project);
-			});
-
-			complete[i].addEventListener("click", () => {
-				// mark complete
-				console.log("toggling complete...");
-				task.completed = !task.completed;
-				// delete old task from storage
-				deleteTask(task.title);
-				// save new task
-				saveTask(task);
-				//re-render
-				const taskArray = loadTasks();
-				renderProjects(taskArray);
-				renderTasks(taskArray, task.project);
-			});
-
-			deleteBtn[i].addEventListener("click", () => {
-				// delete task from storage
-				deleteTask(task.title);
-				// re-render
-				const taskArray = loadTasks();
-				renderProjects(taskArray);
-				renderTasks(taskArray, task.project);
-			});
-		}
 	} catch (error) {
 		console.log(error);
 	}
