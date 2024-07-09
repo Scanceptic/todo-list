@@ -17,13 +17,20 @@ export function saveTask(taskObject) {
     No parameters needed, all tasks are brought out into the session
 */
 export function loadTasks() {
-	// load all tasks
-    const loadedTasks = [];
-    for (let i=0; i<localStorage.length; i++) {
-        loadedTasks.push(localStorage.key[i]);
-    }
-	// return loaded tasks
-    return loadedTasks;
+	try {
+		// load all tasks
+		const loadedTasks = [];
+		for (let i = 0; i < localStorage.length; i++) {
+			loadedTasks.push(localStorage.key[i]);
+		}
+		console.log(
+			`after pushing from localStorage, loadedTasks is: ${loadedTasks}`
+		);
+		// return loaded tasks
+		return loadedTasks;
+	} catch (error) {
+		console.log(error);
+	}
 }
 /* 
     Called when task is edited to delete old task (before edited task is saved)

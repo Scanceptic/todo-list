@@ -39,11 +39,12 @@ export function getTaskArray(task) {
 		if (typeof taskArray === "undefined") {
 			// load from localstorage
 			const taskArray = loadTasks();
+			console.log(`after calling loadTasks, taskArray is: ${taskArray}`);
 		}
 		if (task) {
 			taskArray.push(task);
 		}
-		console.log(taskArray);
+		console.log(`before returning, taskArray is: ${taskArray}`);
 		return taskArray;
 	} catch (error) {
 		console.log(error);

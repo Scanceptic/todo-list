@@ -14,9 +14,10 @@ createTaskButton.addEventListener("click", () => {
 	);
 	// check title is unique
 	// loop through current array of tasks
-	for (let i = 0; i < getTaskArray.length; i++) {
+	console.log(getTaskArray().length)
+	for (let i = 0; i < getTaskArray().length; i++) {
 		// if task.title === title parameter
-		if (getTaskArray[i].title === taskObject.title) {
+		if (getTaskArray()[i].title === taskObject.title) {
 			// error
 			console.log("Task title is not unique");
 			return null;
