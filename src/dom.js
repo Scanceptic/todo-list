@@ -13,10 +13,12 @@ import { getTaskArray } from "./app.js";
 */
 export function renderTasks(taskArray, project) {
 	try {
+		console.log("Rendering tasks...");
 		// get task div by id
 		const taskList = document.getElementById("tasks");
 		// clear tasks from div id (while div.lastchild div.removeChild(div.lastChild))
 		while (taskList.lastChild) {
+			console.log("Clearing old tasks...");
 			taskList.removeChild(taskList.lastChild);
 		}
 		// loop through all tasks in memory
@@ -56,16 +58,19 @@ export function renderTasks(taskArray, project) {
 */
 export function renderProjects(taskArray) {
 	try {
+		console.log("Rendering projects...");
 		// get projects div by id
 		const projects = document.getElementById("projects");
 		// clear projects from projects (while div.lastChild div.removeChild(div.lastChild))
 		while (projects.lastChild) {
+			console.log("Clearing old projects...");
 			projects.removeChild(projects.lastChild);
 		}
 		// make empty projects array
 		const projectsArray = [];
 		// loop through all tasks in memory
 		for (let i = 0; i < taskArray.length; i++) {
+			console.log("Finding new projects...");
 			// get item project
 			const projectTitle = taskArray[i].project;
 			// if task.project is not already in the projects array
@@ -77,14 +82,16 @@ export function renderProjects(taskArray) {
 				projectElement.classList.add("project");
 				projectElement.id = projectTitle;
 				projectElement.textContent = projectTitle;
-                // add onclick event listener
-                projectElement.addEventListener("click", () => {
-                    renderTasks(taskArray, projectTitle);
-                })
+				// add onclick event listener
+				projectElement.addEventListener("click", () => {
+					renderTasks(taskArray, projectTitle);
+				});
 				// append project DOM element to projects div
+				console.log("Appending new projects...");
 				projects.appendChild(projectElement);
 			}
 		}
+        console.log("New projects rendered");
 	} catch (error) {
 		console.log(error);
 	}

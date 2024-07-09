@@ -9,13 +9,9 @@ import {
 import { renderTasks, renderProjects } from "./dom.js";
 import { saveTask, loadTasks, deleteTask } from "./localStorage.js";
 
-try {
-	const taskArray = createTaskArray();
-	renderProjects(taskArray);
-	renderTasks(taskArray, "default-project");
-} catch (error) {
-	console.log(error);
-}
+const taskArray = createTaskArray();
+renderProjects(taskArray);
+renderTasks(taskArray, "default-project");
 
 try {
 	const createTaskButton = document.getElementById("new-task");
@@ -23,11 +19,13 @@ try {
 	createTaskButton.addEventListener("click", () => {
 		const taskObject = createTask(
 			"Example Task" + prompt("Enter number"),
-			"Use very expensive art supplies to create something worth much less",
-			"24/07/2024",
+			"An example task of something you can create using a button",
+			"26/07/2024",
 			1,
-			"Drawing"
+			"created-project"
 		);
+		// render projects
+		//renderProjects(taskArray);
 		// render tasks for inputted project
 		renderTasks(taskObject.project);
 	});

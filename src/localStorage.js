@@ -8,6 +8,7 @@
 */
 export function saveTask(taskObject) {
 	try {
+		console.log("Saving task...");
 		// save under key: task.title
 		// JSON.stringify to store safely
 		localStorage.setItem(taskObject.title, JSON.stringify(taskObject));
@@ -24,18 +25,19 @@ export function saveTask(taskObject) {
 */
 export function loadTasks() {
 	try {
+		console.log("Loading tasks...");
 		// if nothing in storage
 		if (localStorage.length === 0) {
+            console.log("Nothing found in storage");
 			return false;
 		} else {
 			// load all tasks
+            console.log("Found tasks in storage, loading...");
 			const loadedTasks = [];
 			for (let i = 0; i < localStorage.length; i++) {
 				let key = localStorage.key(i);
 				loadedTasks.push(JSON.parse(localStorage.getItem(key)));
 			}
-			console.log(`after pushing from localStorage, loadedTasks is:`);
-			console.log(loadedTasks);
 			// return loaded tasks
 			return loadedTasks;
 		}
@@ -49,6 +51,7 @@ export function loadTasks() {
 */
 export function deleteTask(taskTitle) {
 	try {
+		console.log("Deleting tasks...");
 		// delete from localStorage using key: taskTitle
 	} catch (error) {
 		console.log(error);

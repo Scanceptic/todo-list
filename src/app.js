@@ -6,11 +6,12 @@ import { loadTasks, saveTask } from "./localStorage.js";
 // creating a task returns the taskObject
 export function createTask(title, description, dueDate, priority, project) {
 	try {
+		console.log("Creating task...");
 		// check for acceptable parameters types and formats
 		// title, description and projectname can be anything since they are stored as strings
 
 		// is title unique?
-
+		// check taskarray?
 		// priority must be number above 0
 		if (typeof priority !== "number" || priority < 1) {
 			console.log("Priority was not a number or was less than 1");
@@ -43,10 +44,10 @@ export function createTask(title, description, dueDate, priority, project) {
 */
 export function createTaskArray() {
 	try {
-		console.log("Loading taskArray...");
+		console.log("Creating taskArray...");
 		const loadedTasks = loadTasks();
 		if (loadedTasks === false) {
-			console.log("No tasks in localStorage...");
+			console.log("Creating default task...");
 			const taskObject = createTask(
 				"Example Task",
 				"An example of a task created since none were found in localStorage",
@@ -59,8 +60,7 @@ export function createTaskArray() {
 		}
 		// load tasks to taskArray
 		const taskArray = loadedTasks;
-		console.log("taskArray is:");
-		console.log(taskArray);
+		console.log("Loaded tasks");
 		return taskArray;
 	} catch (error) {
 		console.log(error);
@@ -70,11 +70,11 @@ export function createTaskArray() {
 // get an array of the tasks in memory
 export function getTaskArray(task) {
 	try {
+		console.log("Getting task array...");
 		// if a task parameter is provided push to memory
 		if (task) {
 			taskArray.push(task);
 		}
-		console.log(`before returning, taskArray is: ${taskArray}`);
 		return taskArray;
 	} catch (error) {
 		console.log(error);
@@ -84,6 +84,7 @@ export function getTaskArray(task) {
 /* Setting tasks as complete */
 export function toggleComplete(task) {
 	try {
+		console.log("Toggling task complete...");
 		task.completed = !task.completed;
 		return taskObject;
 	} catch (error) {
@@ -93,6 +94,7 @@ export function toggleComplete(task) {
 /* Editing a task */
 export function editTask() {
 	try {
+		console.log("Editing task...");
 	} catch (error) {
 		console.log(error);
 	}
