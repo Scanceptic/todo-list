@@ -23,6 +23,7 @@ export function renderTasks(taskArray, project) {
 		}
 		// loop through all tasks in memory
 		for (let i = 0; i < taskArray.length; i++) {
+			console.log("Finding project tasks...");
 			// if task.project === project parameter
 			if (taskArray[i].project === project) {
 				// assemble task DOM
@@ -45,6 +46,7 @@ export function renderTasks(taskArray, project) {
 				taskList.appendChild(task);
 			}
 		}
+		console.log("New project tasks rendered");
 	} catch (error) {
 		console.log(error);
 	}
@@ -87,11 +89,10 @@ export function renderProjects(taskArray) {
 					renderTasks(taskArray, projectTitle);
 				});
 				// append project DOM element to projects div
-				console.log("Appending new projects...");
 				projects.appendChild(projectElement);
 			}
 		}
-        console.log("New projects rendered");
+		console.log("New projects rendered");
 	} catch (error) {
 		console.log(error);
 	}
