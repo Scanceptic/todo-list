@@ -82,3 +82,18 @@ export function createTaskArray() {
 		console.log(error);
 	}
 }
+
+// loop through tasks adding event listeners to buttons
+export function taskButtons(renderedTasks) {
+	for (let i = 0; i < renderedTasks.length; i++) {
+		const task = document.getElementById(renderedTasks[i].title);
+		const edit = task.querySelector(".edit");
+		edit.addEventListener("click", () => {
+			console.log("editing...");
+		});
+		const complete = task.querySelector(".complete");
+		complete.addEventListener("click", () => {
+			console.log("completing...");
+		});
+	}
+}

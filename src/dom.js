@@ -1,5 +1,7 @@
 /* This is where all the DOM-related stuff is kept */
 
+import { taskButtons } from "./app";
+
 /* 
     Render Tasks to DOM
     Requires parameter to determine which tasks to render
@@ -19,13 +21,18 @@ export function renderTasks(taskArray, project) {
 			console.log("Clearing old tasks...");
 			taskList.removeChild(taskList.lastChild);
 		}
+		// make array to store all tasks in for other functions to use
+		const tasksToRender = [];
 		// loop through all tasks in memory
 		for (let i = 0; i < taskArray.length; i++) {
 			console.log("Finding project tasks...");
 			// if task.project === project parameter
-			if (taskArray[i].project === project) {
+			if ((taskArray[i].project === project) || typeof project === "undefined") {
+				tasksToRender.push(taskArray[i]);
 				// assemble task DOM
 				const task = document.createElement("div");
+				// unique id
+				task.id = taskArray[i].title;
 				task.classList.add("task");
 				const title = document.createElement("h3");
 				title.textContent = taskArray[i].title;
@@ -41,11 +48,9 @@ export function renderTasks(taskArray, project) {
 				priority.classList.add("priority");
 				// create complete and edit buttons
 				const edit = document.createElement("button");
-				edit.addEventListener("click", () => {});
-				edit.textContent = "Edit"
+				edit.textContent = "Edit";
 				edit.classList.add("edit");
 				const complete = document.createElement("button");
-				complete.addEventListener("click", () => {});
 				complete.textContent = "Complete";
 				complete.classList.add("complete");
 				// append components to task element
@@ -60,6 +65,8 @@ export function renderTasks(taskArray, project) {
 			}
 		}
 		console.log("New project tasks rendered");
+		taskButtons(tasksToRender);
+		return tasksToRender;
 	} catch (error) {
 		console.log(error);
 	}

@@ -4,13 +4,14 @@ import {
 	toggleComplete,
 	editTask,
 	createTaskArray,
+	taskButtons,
 } from "./app.js";
 import { renderTasks, renderProjects } from "./dom.js";
 import { saveTask, loadTasks, deleteTask } from "./localStorage.js";
 
 const taskArray = createTaskArray();
 renderProjects(taskArray);
-renderTasks(taskArray, "default-project");
+renderTasks(taskArray);
 
 const createTaskButton = document.getElementById("new-task");
 
