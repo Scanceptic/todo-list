@@ -1,7 +1,9 @@
 import "./style.css";
-import { createTask, toggleComplete, editTask, getTaskArray } from "./app.js";
+import { createTask, toggleComplete, editTask, getTaskArray, createTaskArray } from "./app.js";
 import { renderTasks, renderProjects } from "./dom.js";
 import { saveTask, loadTasks, deleteTask } from "./localStorage.js";
+
+createTaskArray();
 
 const createTaskButton = document.getElementById("new-task");
 createTaskButton.addEventListener("click", () => {

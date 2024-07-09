@@ -1,4 +1,4 @@
-import { loadTasks } from "./localStorage.js";
+import { loadTasks, saveTask } from "./localStorage.js";
 
 // Everything in app.js should work with pure JS objects - no HTML, no localStorage
 /* Creating new task objects */
@@ -33,19 +33,42 @@ export function createTask(title, description, dueDate, priority, project) {
 	}
 }
 
+/* 
+	Run on pageload
+	Get tasks from localStorage
+	If no tasks in localStorage
+	Create example task
+*/
 export function createTaskArray() {
-	
+	try {
+		const taskArray = [];
+		console.log("Loading taskArray...");
+		if (loadTasks() === false) {
+			console.log("No tasks in localStorage...");
+			const taskObject = createTask(
+				"Example Task",
+				"An example of a task created since none were found in localStorage",
+				"24/07/2024",
+				1,
+				"default-project"
+			);
+			console.log("Adding task to taskArray...");
+			taskArray.push(taskObject);
+			console.log("Saving task to localStorage...");
+			saveTask(taskObject);
+		} else {
+			taskArray = loadTasks();
+		}
+		return taskArray;
+	} catch (error) {
+		console.log(error);
+	}
 }
 
-// add task to memory, or just get an array of the tasks in memory
+// get an array of the tasks in memory
 export function getTaskArray(task) {
 	try {
-		// if no tasks in array, get the tasks from localStorage
-		if (typeof taskArray === "undefined") {
-			console.log("taskArray is undefined - loading from localStorage");
-			// load from localstorage
-			const taskArray = loadTasks();
-		}
+		// if a task parameter is provided push to memory
 		if (task) {
 			taskArray.push(task);
 		}

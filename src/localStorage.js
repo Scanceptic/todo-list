@@ -9,6 +9,8 @@
 export function saveTask(taskObject) {
 	// save under key: task.title
 	// JSON.stringify to store safely
+	localStorage.setItem(taskObject.title, JSON.stringify(taskObject));
+	console.log(`Task saved as: ${taskObject.title}`);
 }
 
 /*
@@ -18,17 +20,21 @@ export function saveTask(taskObject) {
 */
 export function loadTasks() {
 	try {
-		// load all tasks
-		const loadedTasks = [];
-		for (let i = 0; i < localStorage.length; i++) {
-			loadedTasks.push(localStorage.key[i]);
+		// if nothing in storage
+		if (localStorage.length === 0) {
+			return false;
+		} else {
+			// load all tasks
+			const loadedTasks = [];
+			for (let i = 0; i < localStorage.length; i++) {
+				loadedTasks.push(JSON.parse(localStorage.key[i]));
+			}
+			console.log(
+				`after pushing from localStorage, loadedTasks is: ${loadedTasks}`
+			);
+			// return loaded tasks
+			return loadedTasks;
 		}
-		console.log(
-			`after pushing from localStorage, loadedTasks is: ${loadedTasks}`
-		);
-        // if there were no loaded tasks, create an example task
-		// return loaded tasks
-		return loadedTasks;
 	} catch (error) {
 		console.log(error);
 	}
