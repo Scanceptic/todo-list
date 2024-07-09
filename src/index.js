@@ -1,13 +1,7 @@
 import "./style.css";
-import {
-	createTask,
-	toggleComplete,
-	editTask,
-	createTaskArray,
-	taskButtons,
-} from "./app.js";
+import { createTask, createTaskArray } from "./app.js";
 import { renderTasks, renderProjects } from "./dom.js";
-import { saveTask, loadTasks, deleteTask } from "./localStorage.js";
+import { saveTask } from "./localStorage.js";
 
 const taskArray = createTaskArray();
 renderProjects(taskArray);

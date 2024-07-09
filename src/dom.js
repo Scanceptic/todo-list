@@ -18,14 +18,14 @@ export function renderTasks(taskArray, project) {
 		const taskList = document.getElementById("tasks");
 		// clear tasks from div id (while div.lastchild div.removeChild(div.lastChild))
 		while (taskList.lastChild) {
-			console.log("Clearing old tasks...");
+			//console.log("Clearing old tasks...");
 			taskList.removeChild(taskList.lastChild);
 		}
 		// make array to store all tasks in for other functions to use
 		const tasksToRender = [];
 		// loop through all tasks in memory
 		for (let i = 0; i < taskArray.length; i++) {
-			console.log("Finding project tasks...");
+			//console.log("Finding project tasks...");
 			// if task.project === project parameter
 			if ((taskArray[i].project === project) || typeof project === "undefined") {
 				tasksToRender.push(taskArray[i]);
@@ -85,14 +85,14 @@ export function renderProjects(taskArray) {
 		const projects = document.getElementById("projects");
 		// clear projects from projects (while div.lastChild div.removeChild(div.lastChild))
 		while (projects.lastChild) {
-			console.log("Clearing old projects...");
+			//console.log("Clearing old projects...");
 			projects.removeChild(projects.lastChild);
 		}
 		// make empty projects array
 		const projectsArray = [];
 		// loop through all tasks in memory
 		for (let i = 0; i < taskArray.length; i++) {
-			console.log("Finding new projects...");
+			//console.log("Finding new projects...");
 			// get item project
 			const projectTitle = taskArray[i].project;
 			// if task.project is not already in the projects array
