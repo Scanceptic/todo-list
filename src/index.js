@@ -1,15 +1,16 @@
 import "./style.css";
 import {
+	createTaskArray,
 	createTask,
-	createProject,
 	toggleComplete,
 	editTask,
-	loadStorage,
 } from "./app.js";
-import "./dom.js";
-import "./localStorage.js";
+import { renderTasks, renderProjects } from "./dom.js";
+import { saveTask, loadTasks, deleteTask } from "./localStorage.js";
 
 console.log("Link Successful");
+
+createTaskArray();
 
 createTask(
 	"Draw a Pretty Picture",

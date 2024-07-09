@@ -6,7 +6,7 @@
     Called when a task is edited (after original task is deleted)
     Parameter needed, JS object containing all task properties
 */
-function saveTask(taskObject) {
+export function saveTask(taskObject) {
 	// save under key: task.title
 	// JSON.stringify to store safely
 }
@@ -16,7 +16,7 @@ function saveTask(taskObject) {
     Called when app is first loaded
     No parameters needed, all tasks are brought out into the session
 */
-function loadTasks() {
+export function loadTasks() {
 	// load all tasks
 	// return loaded tasks
 }
@@ -24,6 +24,6 @@ function loadTasks() {
     Called when task is edited to delete old task (before edited task is saved)
     Parameter needed, title of task used to find key-value pair and delete the old task
 */
-function deleteTask(taskTitle) {
+export function deleteTask(taskTitle) {
 	// delete from localStorage using key: taskTitle
 }

@@ -1,7 +1,7 @@
 // Everything in app.js should work with pure JS objects - no HTML, no localStorage
 // Make an empty task array on pageload?
 // fill with stuff from localStorage if there is any
-function createTaskArray() {
+export function createTaskArray() {
 	const taskArray = [];
 	return taskArray;
 }
@@ -9,7 +9,7 @@ function createTaskArray() {
 /* Creating new task objects */
 // factory function for creating new task objects
 // creating a task adds it to the session taskArray, and returns the taskObject as well
-function createTask(title, description, dueDate, priority, project) {
+export function createTask(title, description, dueDate, priority, project) {
 	// check for acceptable parameters types and formats
 	// title, description and projectname can be anything since they are stored as strings
 
@@ -47,9 +47,9 @@ function createTask(title, description, dueDate, priority, project) {
 }
 
 /* Setting tasks as complete */
-function toggleComplete(task) {
+export function toggleComplete(task) {
 	task.completed = !task.completed;
 	return taskObject;
 }
 /* Editing a task */
-function editTask() {}
+export function editTask() {}
