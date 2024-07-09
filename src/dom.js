@@ -145,6 +145,11 @@ export function taskButtons(renderedTasks) {
 				taskElement.classList.toggle("editing");
 				// delete old task from storage
 				deleteTask(task.title);
+				task.title = prompt("title:");
+				task.description = prompt("description:");
+				task.dueDate = prompt("due date:");
+				task.priority = prompt("Priority:");
+				task.project = prompt("Project:");
 				// save new task
 				saveTask(task);
 				// re-render
