@@ -27,11 +27,11 @@ export function loadTasks() {
 			// load all tasks
 			const loadedTasks = [];
 			for (let i = 0; i < localStorage.length; i++) {
-				loadedTasks.push(JSON.parse(localStorage.key[i]));
+				let key = localStorage.key(i);
+				loadedTasks.push(JSON.parse(localStorage.getItem(key)));
 			}
-			console.log(
-				`after pushing from localStorage, loadedTasks is: ${loadedTasks}`
-			);
+			console.log(`after pushing from localStorage, loadedTasks is:`);
+			console.log(loadedTasks);
 			// return loaded tasks
 			return loadedTasks;
 		}
