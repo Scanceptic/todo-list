@@ -87,17 +87,16 @@ export function createTaskArray() {
 // loop through tasks adding event listeners to buttons
 export function taskButtons(renderedTasks) {
 	try {
-		const edit = document.querySelector(".edit");
-		const complete = document.querySelector(".complete");
-		const deleteTask = document.querySelector(".delete");
+		const edit = document.getElementsByClassName("edit");
+		const complete = document.getElementsByClassName("complete");
+		const deleteTask = document.getElementsByClassName("delete");
 		for (let i = 0; i < renderedTasks.length; i++) {
 			const task = renderedTasks[i];
 			const taskElement = document.getElementById(task.title);
-
-			edit.addEventListener("click", () => {
+			edit[i].addEventListener("click", () => {
 				// do edits
 				console.log("editing...");
-				taskElement.classList.toggle("edit");
+				taskElement.classList.toggle("editing");
 				// delete old task from storage
 				deleteTask(task.title);
 				// save new task
@@ -108,10 +107,10 @@ export function taskButtons(renderedTasks) {
 				renderTasks(taskArray, task.project);
 			});
 
-			complete.addEventListener("click", () => {
+			complete[i].addEventListener("click", () => {
 				// mark complete
 				console.log("toggling complete...");
-				taskElement.classList.toggle("complete");
+				taskElement.classList.toggle("completed");
 				task.completed = !task.completed;
 				// delete old task from storage
 				deleteTask(task.title);
@@ -123,7 +122,7 @@ export function taskButtons(renderedTasks) {
 				renderTasks(taskArray, task.project);
 			});
 
-			deleteTask.addEventListener("click", () => {
+			deleteTask[i].addEventListener("click", () => {
 				// delete task from storage
 				deleteTask(task.title);
 				// re-render
